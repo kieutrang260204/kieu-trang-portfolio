@@ -45,16 +45,28 @@ export interface VideoItem {
 }
 
 export const videoItems: VideoItem[] = [
-  // {
-  //   title: "Product Launch Reel",
-  //   thumbnail: "/video-thumbnails/reel-01.webp",
-  //   video: "/videos/reel-01.mp4",
-  //   platform: "Local",
-  // },
-  // {
-  //   title: "Behind the Scenes",
-  //   thumbnail: "/video-thumbnails/bts-cover.webp",
-  //   video: "https://www.tiktok.com/@yourhandle/video/1234567890",
-  //   platform: "TikTok",
-  // },
+  {
+    title: "Social Media Content #1",
+    thumbnail: "/video-thumbnails/reel1.jpg",
+    video: "/videos/reel1.mp4",
+    platform: "Local",
+  },
+  {
+    title: "Social Media Content #2",
+    thumbnail: "/video-thumbnails/reel2.jpg",
+    video: "/videos/reel2.mp4",
+    platform: "Local",
+  },
+  {
+    title: "Social Media Content #3",
+    thumbnail: "/video-thumbnails/reel3.jpg",
+    video: "/videos/reel3.mp4",
+    platform: "Local",
+  },
+  {
+    title: "Social Media Content #4",
+    thumbnail: "/video-thumbnails/reel4.jpg",
+    video: "/videos/reel4.mp4",
+    platform: "Local",
+  },
 ];

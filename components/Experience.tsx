@@ -27,17 +27,45 @@ export default function Experience() {
             <h3 className="font-heading text-2xl font-medium text-primary">
               {item.role}
             </h3>
-            <p className="mb-4 text-sm text-secondary">{item.org}</p>
-            <ul className="space-y-2">
-              {item.responsibilities.map((r) => (
-                <li
-                  key={r}
-                  className="text-sm leading-relaxed text-secondary"
-                >
-                  {r}
-                </li>
-              ))}
-            </ul>
+            <p className="text-sm text-secondary">{item.org}</p>
+            {item.location && (
+              <p className="mb-5 mt-1 text-sm text-secondary">
+                {item.location}
+              </p>
+            )}
+
+            {item.subsections ? (
+              <div className="space-y-7">
+                {item.subsections.map((subsection) => (
+                  <div key={subsection.title}>
+                    <h4 className="mb-3 font-heading text-xl font-medium text-primary">
+                      {subsection.title}
+                    </h4>
+                    <ul className="space-y-2">
+                      {subsection.responsibilities.map((responsibility) => (
+                        <li
+                          key={responsibility}
+                          className="text-sm leading-relaxed text-secondary"
+                        >
+                          {responsibility}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <ul className="mt-4 space-y-2">
+                {item.responsibilities?.map((responsibility) => (
+                  <li
+                    key={responsibility}
+                    className="text-sm leading-relaxed text-secondary"
+                  >
+                    {responsibility}
+                  </li>
+                ))}
+              </ul>
+            )}
           </motion.div>
         ))}
 

@@ -20,4 +20,5 @@ export const site = {
   },
   cvFile: "/cv/KieuTrang_NguyenThiKieuTrang_CV.pdf",
   profileImage: "/images/profile/profile.jpg",
+  vscoUrl: "https://vsco.co/kyuzhn/gallery",
 };

@@ -1,24 +1,5 @@
-// ---------------------------------------------------------------------------
-// PHOTOGRAPHY DATA
-// ---------------------------------------------------------------------------
-// This is the only file you need to edit to add or remove photos.
-//
-// HOW TO ADD A NEW PHOTO:
-// 1. Put the image file in /public/photography
-//    (WebP or AVIF recommended, ideally under 500 KB)
-// 2. Copy one object below, paste it into the array, and update the fields.
-//
-// Example:
-// {
-//   image: "/photography/photo-01.webp",
-//   title: "Product Photography",
-//   category: "Product",
-// },
-//
-// `title` and `category` are both optional — you can omit either one.
-// `category` is only used to power the filter buttons above the grid; if you
-// leave it off entirely for every photo, the filter buttons won't show.
-// ---------------------------------------------------------------------------
+import { readdirSync } from "node:fs";
+import { extname, join } from "node:path";
 
 export interface PhotographyItem {
   image: string;
@@ -26,7 +7,31 @@ export interface PhotographyItem {
   category?: string;
 }
 
-export const photographyItems: PhotographyItem[] = [
-  // { image: "/photography/photo-01.webp", title: "Golden Hour Street", category: "Street" },
-  // { image: "/photography/photo-02.webp", title: "Studio Product Shot", category: "Product" },
-];
+const photographyDirectory = join(process.cwd(), "public", "photography");
+const supportedExtensions = new Set([
+  ".avif",
+  ".gif",
+  ".jpeg",
+  ".jpg",
+  ".png",
+  ".webp",
+]);
+
+/**
+ * Build the gallery from the files in /public/photography.
+ * Filenames are used verbatim and sorted naturally for predictable ordering.
+ */
+export const photographyItems: PhotographyItem[] = readdirSync(
+  photographyDirectory,
+  { withFileTypes: true }
+)
+  .filter(
+    (entry) =>
+      entry.isFile() &&
+      supportedExtensions.has(extname(entry.name).toLocaleLowerCase())
+  )
+  .map((entry) => entry.name)
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+  .map((filename) => ({
+    image: `/photography/${filename}`,
+  }));

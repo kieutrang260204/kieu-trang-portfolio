@@ -2,7 +2,6 @@ export const site = {
   // Large hero name — rendered in the signature font (see Hero.tsx)
   name: "Kieu Trang",
   fullName: "Nguyen Thi Kieu Trang",
-  title: "Digital Marketing Specialist",
   intro:
     "I create marketing campaigns, visual content, and digital experiences that help brands connect with their audiences.",
   about:
@@ -11,10 +10,12 @@ export const site = {
     email: "ntktrang260204@gmail.com",
     phone: "+84 978 262 229",
     linkedin: "https://www.linkedin.com/in/trangkieung",
-    location: "Ho Chi Minh, Vietnam",
-    instagram: "https://www.instagram.com/kyuzhn/",
-    tiktok: "https://www.tiktok.com/@urmiaaaa",
+    // TODO: Replace with your real profile URL — this placeholder points to
+    // the platform's homepage so the link is never broken in the meantime.
+    instagram: "https://www.instagram.com/",
+    // TODO: Replace with your real profile URL.
+    tiktok: "https://www.tiktok.com/",
   },
-  cvFile: "/cv/KieuTrang_NguyenThiKieuTrang_CV.pdf",
+  cvFile: "/cv/NguyenThiKieuTrang_CV.pdf",
   profileImage: "/images/profile/profile.jpg",
 };
